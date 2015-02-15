@@ -1,0 +1,25 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RandomAutomata/RandomSequence.cs">
+    <Files>
+      <File FileName="RandomAutomata/Cell.cs" Line="14" Column="5" />
+      <File FileName="RandomAutomata/Rule.cs" Line="10" Column="4" />
+      <File FileName="RandomAutomata/Automata.cs" Line="28" Column="49" />
+      <File FileName="RandomAutomata/RandomSequence.cs" Line="41" Column="3" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="RandomAutomata" expanded="True">
+            <Node name="RandomSequence.cs" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <AuthorInfo Name="Isabell Cowan" Email="isabellcowan@gmail.com" Copyright="Isabell Cowan" Company="" Trademark="" />
+</Properties>
