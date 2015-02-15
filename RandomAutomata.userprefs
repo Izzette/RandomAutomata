@@ -1,18 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RandomAutomata/RandomSequence.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RandomAutomata/License.txt">
     <Files>
-      <File FileName="RandomAutomata/Cell.cs" Line="14" Column="5" />
-      <File FileName="RandomAutomata/Rule.cs" Line="10" Column="4" />
-      <File FileName="RandomAutomata/Automata.cs" Line="28" Column="49" />
-      <File FileName="RandomAutomata/RandomSequence.cs" Line="41" Column="3" />
+      <File FileName="RandomAutomata/Cell.cs" Line="21" Column="1" />
+      <File FileName="RandomAutomata/Rule.cs" Line="2" Column="8" />
+      <File FileName="RandomAutomata/Automata.cs" Line="2" Column="12" />
+      <File FileName="RandomAutomata/RandomSequence.cs" Line="17" Column="32" />
+      <File FileName="RandomAutomata/License.txt" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="RandomAutomata" expanded="True">
-            <Node name="RandomSequence.cs" selected="True" />
-          </Node>
+          <Node name="RandomAutomata" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
