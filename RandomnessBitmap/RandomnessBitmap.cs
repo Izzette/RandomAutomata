@@ -105,10 +105,14 @@ namespace RandomnessBitmap
 				Console.ResetColor ();
 				ConsoleKey consoleKey = Console.ReadKey (false).Key;
 				if ((ConsoleKey.Y == consoleKey) || (ConsoleKey.Enter == consoleKey)) {
+					if (ConsoleKey.Enter != consoleKey) {
+						Console.WriteLine ();
+					}
 					Console.ForegroundColor = ConsoleColor.DarkYellow;
 					Console.WriteLine ("Original will image be overwritten");
 					Console.ResetColor ();
 				} else {
+					Console.WriteLine ();
 					Console.ForegroundColor = ConsoleColor.DarkYellow;
 					Console.WriteLine ("Exiting ...");
 					Console.ResetColor ();
@@ -195,11 +199,11 @@ namespace RandomnessBitmap
 			stopwatch.Start ();
 			Bitmap bitmap = new Bitmap (width, height);
 			Parallel.For (0, width, x => {
-				Parallel.For (0, height, y => {
+				for (int y = 0; y < height; y++) {
 					int colorsIndex = 3 * ((y * width) + x);
 					Color color = Color.FromArgb (randomBytes [colorsIndex], randomBytes [colorsIndex + 1], randomBytes [colorsIndex + 2]);
 					bitmap.SetPixel (x, y, color);
-				});
+				}
 			});
 			stopwatch.Stop ();
 			elapsedTime = stopwatch.ElapsedMilliseconds;

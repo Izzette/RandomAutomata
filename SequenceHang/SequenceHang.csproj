@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SequenceHang</RootNamespace>
     <AssemblyName>SequenceHang</AssemblyName>
-    <ReleaseVersion>0.3.5</ReleaseVersion>
+    <ReleaseVersion>0.3.6</ReleaseVersion>
     <Description>Test the time it takes to execute multiple instances of GetNextBools.</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
     <StartupObject>SequenceHang.SequenceHang</StartupObject>
@@ -22,8 +22,9 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+    <Commandlineparameters>500 bytes 50000</Commandlineparameters>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>

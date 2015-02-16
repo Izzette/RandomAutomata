@@ -47,36 +47,40 @@ namespace RandomAutomata
 			this.Skip (TimeSpace);
 			byte[] states = this.automata.States;
 			bool[] nextBools = new bool[automataLength];
-			Parallel.For (0, nextBools.Length, i => {
+			for (int i = 0; i < nextBools.Length; i++) {
 				nextBools [i] = (0 < states [i]);
-			});
+			}
 			return nextBools;
 		}
 
 		public bool[] GetNextBools (int length)
 		{
 			bool[] nextBools = new bool[length];
-			int quotient = length / BoolsLength;
-			if (0 != quotient) {
-				for (int i = 0; i < quotient; i++) {
-					this.Skip (TimeSpace);
-					byte[] states = this.automata.States;
-					int startIndex = BoolsLength * i;
-					Parallel.For (0, BoolsLength, j => {
-						int index = startIndex + j;
-						nextBools [index] = (0 < states [j]);
-					});
-				}
-			}
-			int remainder = length % BoolsLength;
+			int remainder;
+			int quotient = Math.DivRem (length, BoolsLength, out remainder);
+			int subBoolsLength = quotient;
 			if (0 != remainder) {
-				this.Skip (TimeSpace);
-				byte[] states = this.automata.States;
-				int startIndex = BoolsLength * quotient;
-				Parallel.For (0, remainder, i => {
-					int index = startIndex + i;
-					nextBools [index] = (0 < states [i]);
+				subBoolsLength++;
+			}
+			bool[][] subBools = new bool[subBoolsLength][];
+			for (int i = 0; i < subBools.Length; i++) {
+				subBools [i] = this.GetNextBools ();
+			}
+			if (0 != quotient) {
+				Parallel.For (0, quotient, i => {
+					int startIndex = BoolsLength * i;
+					for (int j = 0; j < BoolsLength; j++) {
+						int index = startIndex + j;
+						nextBools [index] = subBools [i][j];
+					}
 				});
+			}
+			if (0 != remainder) {
+				int startIndex = BoolsLength * quotient;
+				for (int i = 0; i < remainder; i++) {
+					int index = startIndex + i;
+					nextBools [index] = subBools [quotient][i];
+				}
 			}
 			return nextBools;
 		}
@@ -86,51 +90,45 @@ namespace RandomAutomata
 			this.Skip (TimeSpace);
 			byte[] states = this.automata.States;
 			byte[] nextBytes = new byte[BytesLength];
-			Parallel.For (0, nextBytes.Length, i => {
+			for (int i = 0; i < BytesLength; i++) {
 				int startIndex = lengthOfByte * i;
 				for (int ie = 0; ie < lengthOfByte; ie++) {
 					nextBytes [i] <<= 1;
 					int statesIndex = startIndex + ie;
 					nextBytes [i] |= states [statesIndex];
 				}
-			});
+			}
 			return nextBytes;
 		}
 
 		public byte[] GetNextBytes (int length)
 		{
 			byte[] nextBytes = new byte[length];
-			int quotient = length / BytesLength;
-			if (0 != quotient) {
-				for (int i = 0; i < quotient; i++) {
-					this.Skip (TimeSpace);
-					byte[] states = this.automata.States;
-					int startBytesIndex = i * BytesLength;
-					Parallel.For (0, BytesLength, j => {
-						int startStatesIndex = j * lengthOfByte;
-						int bytesIndex = startBytesIndex + j;
-						for (int je = 0; je < lengthOfByte; je++) {
-							nextBytes [bytesIndex] <<= 1;
-							int statesIndex = startStatesIndex + je;
-							nextBytes [bytesIndex] |= states [statesIndex];
-						}
-					});
-				}
-			}
-			int remainder = length % BytesLength;
+			int remainder;
+			int quotient = Math.DivRem (length, BytesLength, out remainder);
+			int subBytesLength = quotient;
 			if (0 != remainder) {
-				this.Skip (TimeSpace);
-				byte[] states = this.automata.States;
-				int startBytesIndex = BytesLength * quotient;
-				Parallel.For (0, remainder, i => {
-					int startStatesIndex = i * lengthOfByte;
-					int bytesIndex = startBytesIndex + i;
-					for (int ie = 0; ie < lengthOfByte; ie++) {
-						nextBytes [bytesIndex] <<= 1;
-						int statesIndex = startStatesIndex + ie;
-						nextBytes [bytesIndex] |= states [statesIndex];
+				subBytesLength++;
+			}
+			byte[][] subBytes = new byte[subBytesLength][];
+			for (int i = 0; i < subBytes.Length; i++) {
+				subBytes [i] = this.GetNextBytes ();
+			}
+			if (0 != quotient) {
+				Parallel.For (0, quotient, i => {
+					int startBytesIndex = i * BytesLength;
+					for (int j = 0; j < BytesLength; j++) {
+						int bytesIndex = startBytesIndex + j;
+						nextBytes [bytesIndex] = subBytes [i] [j];
 					}
 				});
+			}
+			if (0 != remainder) {
+				int startBytesIndex = BytesLength * quotient;
+				for (int i = 0; i < remainder; i++) {
+					int bytesIndex = startBytesIndex + i;
+					nextBytes [bytesIndex] = subBytes [quotient] [i];
+				}
 			}
 			return nextBytes;
 		}

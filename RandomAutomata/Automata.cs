@@ -44,13 +44,13 @@ namespace RandomAutomata
 
 		public void Evolve ()
 		{
-			Parallel.For (0, this.Length, i => {
+			for (int i = 0; i < this.Length; i++) {
 				int neighbourhood = this.cells [i].GetNeighbourhood ();
 				this.states [i] = rule.GetNextState (neighbourhood);
-			});
-			Parallel.For (0, this.Length, i => {
+			}
+			for (int i = 0; i < this.Length; i++) {
 				this.cells [i].State = this.states [i];
-			});
+			}
 		}
 
 		private Cell[] cells;

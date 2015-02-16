@@ -72,7 +72,7 @@ namespace SequenceHang
 				}
 				stopwatch.Stop ();
 			}
-			Console.WriteLine ("ElapsedTime: {0:n0}", stopwatch.ElapsedMilliseconds);
+			Console.WriteLine ("ElapsedTime: {0:n0} ms", stopwatch.ElapsedMilliseconds);
 		}
 
 		private enum BoolsOrBytes
