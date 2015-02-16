@@ -39,7 +39,7 @@ namespace RandomAutomata
 			get { return this.cells.Length; }
 		}
 		public byte[] States {
-			get { return (byte[])this.states.Clone (); }
+			get { return this.states; }
 		}
 
 		public void Evolve ()

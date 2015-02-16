@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>RandomAutomata</RootNamespace>
     <AssemblyName>RandomAutomata</AssemblyName>
-    <ReleaseVersion>0.3.2</ReleaseVersion>
+    <ReleaseVersion>0.3.5</ReleaseVersion>
     <Description>See parent for description.</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
   </PropertyGroup>

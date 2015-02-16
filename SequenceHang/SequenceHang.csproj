@@ -5,15 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}</ProjectGuid>
+    <ProjectGuid>{96CDE490-BF5D-4764-A19B-A6DDEAEECA2E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RandomnessBitmap</RootNamespace>
-    <AssemblyName>RandomnessBitmap</AssemblyName>
+    <RootNamespace>SequenceHang</RootNamespace>
+    <AssemblyName>SequenceHang</AssemblyName>
     <ReleaseVersion>0.3.5</ReleaseVersion>
-    <Description>Args formated as:
-width height imageSavePath "color"/"bw"</Description>
+    <Description>Test the time it takes to execute multiple instances of GetNextBools.</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
-    <StartupObject>RandomnessBitmap.RandomnessBitmap</StartupObject>
+    <StartupObject>SequenceHang.SequenceHang</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,10 +22,8 @@ width height imageSavePath "color"/"bw"</Description>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
-    <Externalconsole>true</Externalconsole>
-    <Commandlineparameters>900 900 bw.bmp bw</Commandlineparameters>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>
@@ -34,20 +31,15 @@ width height imageSavePath "color"/"bw"</Description>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
-    <Externalconsole>true</Externalconsole>
-    <Commandlineparameters>900 900 color.bmp color</Commandlineparameters>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Reference Include="System.Drawing" />
+    <Compile Include="SequenceHang.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="RandomnessBitmap.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="RandomnessBitmap.userprefs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RandomAutomata\RandomAutomata.csproj">

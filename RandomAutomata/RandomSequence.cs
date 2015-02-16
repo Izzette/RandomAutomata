@@ -58,16 +58,24 @@ namespace RandomAutomata
 			bool[] nextBools = new bool[length];
 			int quotient = length / BoolsLength;
 			if (0 != quotient) {
-				Parallel.For (0, quotient, i => {
-					this.GetNextBools ().CopyTo (nextBools, i * BoolsLength);
-				});
+				for (int i = 0; i < quotient; i++) {
+					this.Skip (TimeSpace);
+					byte[] states = this.automata.States;
+					int startIndex = BoolsLength * i;
+					Parallel.For (0, BoolsLength, j => {
+						int index = startIndex + j;
+						nextBools [index] = (0 < states [j]);
+					});
+				}
 			}
 			int remainder = length % BoolsLength;
 			if (0 != remainder) {
-				bool[] sequence = this.GetNextBools ();
+				this.Skip (TimeSpace);
+				byte[] states = this.automata.States;
+				int startIndex = BoolsLength * quotient;
 				Parallel.For (0, remainder, i => {
-					int index = (BoolsLength * quotient) + i;
-					nextBools [index] = sequence [i];
+					int index = startIndex + i;
+					nextBools [index] = (0 < states [i]);
 				});
 			}
 			return nextBools;
@@ -77,11 +85,12 @@ namespace RandomAutomata
 		{
 			this.Skip (TimeSpace);
 			byte[] states = this.automata.States;
-			byte[] nextBytes = new byte[automataLength / lengthOfByte];
+			byte[] nextBytes = new byte[BytesLength];
 			Parallel.For (0, nextBytes.Length, i => {
+				int startIndex = lengthOfByte * i;
 				for (int ie = 0; ie < lengthOfByte; ie++) {
 					nextBytes [i] <<= 1;
-					int statesIndex = (i * lengthOfByte) + ie;
+					int statesIndex = startIndex + ie;
 					nextBytes [i] |= states [statesIndex];
 				}
 			});
@@ -93,16 +102,34 @@ namespace RandomAutomata
 			byte[] nextBytes = new byte[length];
 			int quotient = length / BytesLength;
 			if (0 != quotient) {
-				Parallel.For (0, quotient, i => {
-					this.GetNextBytes ().CopyTo (nextBytes, i * BytesLength);
-				});
+				for (int i = 0; i < quotient; i++) {
+					this.Skip (TimeSpace);
+					byte[] states = this.automata.States;
+					int startBytesIndex = i * BytesLength;
+					Parallel.For (0, BytesLength, j => {
+						int startStatesIndex = j * lengthOfByte;
+						int bytesIndex = startBytesIndex + j;
+						for (int je = 0; je < lengthOfByte; je++) {
+							nextBytes [bytesIndex] <<= 1;
+							int statesIndex = startStatesIndex + je;
+							nextBytes [bytesIndex] |= states [statesIndex];
+						}
+					});
+				}
 			}
 			int remainder = length % BytesLength;
 			if (0 != remainder) {
-				byte[] sequence = this.GetNextBytes ();
+				this.Skip (TimeSpace);
+				byte[] states = this.automata.States;
+				int startBytesIndex = BytesLength * quotient;
 				Parallel.For (0, remainder, i => {
-					int index = (BytesLength * quotient) + i;
-					nextBytes [index] = sequence [i];
+					int startStatesIndex = i * lengthOfByte;
+					int bytesIndex = startBytesIndex + i;
+					for (int ie = 0; ie < lengthOfByte; ie++) {
+						nextBytes [bytesIndex] <<= 1;
+						int statesIndex = startStatesIndex + ie;
+						nextBytes [bytesIndex] |= states [statesIndex];
+					}
 				});
 			}
 			return nextBytes;
