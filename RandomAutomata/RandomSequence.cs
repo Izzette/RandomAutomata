@@ -1,5 +1,5 @@
 // 
-// RandomSequence.cs
+// RandomAutomata/RandomAutomata/RandomSequence.cs
 // 
 // Author:
 //     Isabell Cowan <isabellcowan@gmail.com>
@@ -48,11 +48,7 @@ namespace RandomAutomata
 			byte[] states = this.automata.States;
 			bool[] nextBools = new bool[automataLength];
 			Parallel.For (0, nextBools.Length, i => {
-				if (0 < states [i]) {
-					nextBools [i] = true;
-				} else {
-					nextBools [i] = false;
-				}
+				nextBools [i] = (0 < states [i]);
 			});
 			return nextBools;
 		}
@@ -63,14 +59,15 @@ namespace RandomAutomata
 			int quotient = length / BoolsLength;
 			if (0 != quotient) {
 				Parallel.For (0, quotient, i => {
-					this.GetNextBools ().CopyTo (nextBools, i * automataLength);
+					this.GetNextBools ().CopyTo (nextBools, i * BoolsLength);
 				});
 			}
 			int remainder = length % BoolsLength;
 			if (0 != remainder) {
 				bool[] sequence = this.GetNextBools ();
 				Parallel.For (0, remainder, i => {
-					nextBools [length - i] = sequence [i];
+					int index = (BoolsLength * quotient) + i;
+					nextBools [index] = sequence [i];
 				});
 			}
 			return nextBools;
@@ -97,14 +94,15 @@ namespace RandomAutomata
 			int quotient = length / BytesLength;
 			if (0 != quotient) {
 				Parallel.For (0, quotient, i => {
-					this.GetNextBytes ().CopyTo (nextBytes, i * automataLength);
+					this.GetNextBytes ().CopyTo (nextBytes, i * BytesLength);
 				});
 			}
 			int remainder = length % BytesLength;
 			if (0 != remainder) {
 				byte[] sequence = this.GetNextBytes ();
 				Parallel.For (0, remainder, i => {
-					nextBytes [length - i] = sequence [i];
+					int index = (BytesLength * quotient) + i;
+					nextBytes [index] = sequence [i];
 				});
 			}
 			return nextBytes;

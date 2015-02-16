@@ -1,5 +1,5 @@
 // 
-// Rule.cs
+// RandomAutomata/RandomAutomata/Rule.cs
 // 
 // Author:
 //     Isabell Cowan <isabellcowan@gmail.com>

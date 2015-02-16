@@ -1,5 +1,5 @@
 // 
-// Cell.cs
+// RandomAutomata/RandomAutomata/Cell.cs
 // 
 // Author:
 //     Isabell Cowan <isabellcowan@gmail.com>

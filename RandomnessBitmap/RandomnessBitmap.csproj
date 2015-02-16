@@ -5,13 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08808063-93DC-4E99-9F61-7D26AF9E99FD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>RandomAutomata</RootNamespace>
-    <AssemblyName>RandomAutomata</AssemblyName>
+    <ProjectGuid>{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RandomnessBitmap</RootNamespace>
+    <AssemblyName>RandomnessBitmap</AssemblyName>
     <ReleaseVersion>0.3.2</ReleaseVersion>
-    <Description>See parent for description.</Description>
+    <Description>Args formated as:
+width height imageSavePath "color"/"bw"</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
+    <StartupObject>RandomnessBitmap.RandomnessBitmap</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,8 +23,9 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+    <Commandlineparameters>900 900 bw.bmp bw</Commandlineparameters>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -31,33 +34,25 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+    <Commandlineparameters>900 900 color.bmp color</Commandlineparameters>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="Cell.cs" />
-    <Compile Include="Rule.cs" />
-    <Compile Include="RandomSequence.cs" />
-    <Compile Include="Automata.cs" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="License.txt" />
+    <Compile Include="RandomnessBitmap.cs" />
   </ItemGroup>
-  <ProjectExtensions>
-    <MonoDevelop>
-      <Properties>
-        <Deployment.LinuxDeployData generateScript="False" />
-        <MonoDevelop.Autotools.MakefileInfo RelativeMakefileName="Makefile" SyncReferences="True">
-          <BuildFilesVar Sync="True" Name="FILES" />
-          <DeployFilesVar />
-          <ResourcesVar Sync="True" Name="RESOURCES" />
-          <OthersVar />
-          <GacRefVar Sync="True" Name="REFERENCES" />
-          <AsmRefVar Sync="True" Name="REFERENCES" />
-          <ProjectRefVar Sync="True" Name="REFERENCES" />
-        </MonoDevelop.Autotools.MakefileInfo>
-      </Properties>
-    </MonoDevelop>
-  </ProjectExtensions>
+  <ItemGroup>
+    <None Include="RandomnessBitmap.userprefs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RandomAutomata\RandomAutomata.csproj">
+      <Project>{08808063-93DC-4E99-9F61-7D26AF9E99FD}</Project>
+      <Name>RandomAutomata</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

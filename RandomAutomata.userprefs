@@ -1,20 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RandomAutomata/License.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RandomAutomata/RandomSequence.cs">
     <Files>
-      <File FileName="RandomAutomata/Cell.cs" Line="21" Column="1" />
-      <File FileName="RandomAutomata/Rule.cs" Line="2" Column="8" />
-      <File FileName="RandomAutomata/Automata.cs" Line="2" Column="12" />
-      <File FileName="RandomAutomata/RandomSequence.cs" Line="17" Column="32" />
-      <File FileName="RandomAutomata/License.txt" Line="1" Column="1" />
+      <File FileName="RandomnessBitmap/RandomnessBitmap.cs" Line="37" Column="4" />
+      <File FileName="RandomAutomata/Automata.cs" Line="1" Column="1" />
+      <File FileName="RandomAutomata/RandomSequence.cs" Line="53" Column="21" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="RandomAutomata" expanded="True" selected="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

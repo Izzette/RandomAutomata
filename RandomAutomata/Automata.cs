@@ -1,5 +1,5 @@
 // 
-// Automata.cs
+// RandomAutomata/RandomAutomata/Automata.cs
 // 
 // Author:
 //     Isabell Cowan <isabellcowan@gmail.com>

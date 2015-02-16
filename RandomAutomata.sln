@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomAutomata", "RandomAutomata\RandomAutomata.csproj", "{08808063-93DC-4E99-9F61-7D26AF9E99FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomnessBitmap", "RandomnessBitmap\RandomnessBitmap.csproj", "{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,9 +15,13 @@ Global
 		{08808063-93DC-4E99-9F61-7D26AF9E99FD}.Debug|x86.Build.0 = Debug|x86
 		{08808063-93DC-4E99-9F61-7D26AF9E99FD}.Release|x86.ActiveCfg = Release|x86
 		{08808063-93DC-4E99-9F61-7D26AF9E99FD}.Release|x86.Build.0 = Release|x86
+		{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}.Debug|x86.ActiveCfg = Debug|x86
+		{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}.Debug|x86.Build.0 = Debug|x86
+		{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}.Release|x86.ActiveCfg = Release|x86
+		{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = RandomAutomata\RandomAutomata.csproj
+		StartupItem = RandomnessBitmap\RandomnessBitmap.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = Hierarchical
@@ -164,6 +170,6 @@ Global
 		$27.IncludeInstanceMembers = True
 		$27.IncludeStaticEntities = True
 		description = @Simple random sequence generator.\n\nBased on a next and next nearest neighboured cellular automaton.\nUtilizes absolute rule number 1436965290.\n\nInterfaces through class RandomSequence.\nInitialized with a UInt64 random seed.\nReturns time-spaced array of bool or byte.\nLength of bool array is 64.\nLength of byte array is 8.\nCan also return a single UInt64 or Int64.\n\nUtilizes parallelism for fast run-time performance.
-		version = 0.2.0
+		version = 0.3.2
 	EndGlobalSection
 EndGlobal
