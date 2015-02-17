@@ -27,15 +27,12 @@ namespace RandomAutomata
 	public class RandomSequence
 	{
 		
-		public RandomSequence ()
-		{
-			ulong seedNumber = GetRandomSeed ();
-			this.Init (seedNumber);
-		}
+		public RandomSequence () : this (GetRandomSeed ()) { }
 
 		public RandomSequence (ulong seedNumber)
 		{
-			this.Init (seedNumber);
+			this.seedNumber = seedNumber;
+			this.Init ();
 		}
 
 		public ulong SeedNumber {
@@ -177,21 +174,10 @@ namespace RandomAutomata
 		private ulong seedNumber;
 		private Automata automata;
 
-		private void Init (ulong seedNumber)
+		private void Init ()
 		{
-			this.seedNumber = seedNumber;
-			byte[] seedArray = GetSeedArray (seedNumber);
+			byte[] seedArray = GetSeedArray (this.seedNumber);
 			this.automata = new Automata (seedArray);
-		}
-
-		private byte[] GetSeedArray (ulong seedNumber)
-		{
-			byte[] seedArray = new byte[automataLength];
-			for (int i = 0; i < automataLength; i++) {
-				seedArray [i] = (byte)(seedNumber % 2);
-				seedNumber >>= 1;
-			}
-			return seedArray;
 		}
 
 		private const int automataLength = 64;
@@ -211,6 +197,17 @@ namespace RandomAutomata
 			return seed;
 		}
 
+		private static byte[] GetSeedArray (ulong seedNumber)
+		{
+			byte[] seedArray = new byte[automataLength];
+			for (int i = 0; i < automataLength; i++) {
+				seedArray [i] = (byte)(seedNumber % 2);
+				seedNumber >>= 1;
+			}
+			return seedArray;
+		}
+
 	}
+
 }
 

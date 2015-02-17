@@ -19,7 +19,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
 
 namespace RandomAutomata
 {
@@ -43,8 +42,8 @@ namespace RandomAutomata
 		}
 
 		public byte State {
-			get { return this.state; }
-			set { this.state = value; }
+			get;
+			set;
 		}
 
 		public int GetNeighbourhood ()
@@ -52,19 +51,18 @@ namespace RandomAutomata
 			byte neighbourhood = 0;
 			foreach (Cell neighbour in this.neighbours) {
 				neighbourhood <<= 1;
-				neighbourhood |= neighbour.state;
+				neighbourhood |= neighbour.State;
 			}
 			return (int)(neighbourhood);
 		}
 
 		private Cell (byte state)
 		{
-			this.state = state;
+			this.State = state;
 			this.neighbours = new Cell [neighbourhoodLength];
 		}
 
-		private byte state;
-		private Cell[] neighbours;
+		private readonly Cell[] neighbours;
 
 		private const int neighbourhoodLength = 5;
 		private const int halfLength = neighbourhoodLength / 2;

@@ -1,24 +1,13 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+﻿<Properties StartupItem="RandomnessBitmap/RandomnessBitmap.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="RandomAutomata/RandomSequence.cs">
     <Files>
       <File FileName="RandomAutomata/Automata.cs" Line="1" Column="1" />
-      <File FileName="RandomAutomata/RandomSequence.cs" Line="123" Column="7" />
+      <File FileName="RandomAutomata/RandomSequence.cs" Line="7" Column="7" />
       <File FileName="SequenceHang/SequenceHang.cs" Line="1" Column="1" />
       <File FileName="RandomnessBitmap/RandomnessBitmap.cs" Line="1" Column="1" />
       <File FileName="RandomAutomata/Cell.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="RandomAutomata" expanded="True">
-            <Node name="RandomSequence.cs" selected="True" />
-          </Node>
-          <Node name="RandomnessBitmap" expanded="True" />
-          <Node name="SequenceHang" expanded="True" />
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

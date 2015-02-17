@@ -19,8 +19,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-using System;
-using System.Threading.Tasks;
 
 namespace RandomAutomata
 {
@@ -55,7 +53,7 @@ namespace RandomAutomata
 
 		private Cell[] cells;
 		private byte[] states;
-		private Rule rule;
+		private readonly Rule rule;
 	
 	}
 
