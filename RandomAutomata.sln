@@ -27,7 +27,6 @@ Global
 		{96CDE490-BF5D-4764-A19B-A6DDEAEECA2E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = RandomnessBitmap\RandomnessBitmap.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = Hierarchical
@@ -176,6 +175,6 @@ Global
 		$27.IncludeInstanceMembers = True
 		$27.IncludeStaticEntities = True
 		description = @Simple random sequence generator.\n\nBased on a next and next nearest neighboured cellular automaton.\nUtilizes absolute rule number 1436965290.\n\nInterfaces through class RandomSequence.\nInitialized with a UInt64 random seed.\nReturns time-spaced array of bool or byte.\nLength of bool array is 64.\nLength of byte array is 8.\nCan also return a single UInt64 or Int64.\n\nUtilizes parallelism for fast run-time performance.
-		version = 0.3.6
+		version = 1.0.0
 	EndGlobalSection
 EndGlobal

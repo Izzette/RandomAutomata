@@ -3,13 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4E8CE2E9-A09A-40AE-8DCC-EAFE572F36E6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>RandomnessBitmap</RootNamespace>
     <AssemblyName>RandomnessBitmap</AssemblyName>
-    <ReleaseVersion>0.3.6</ReleaseVersion>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
     <Description>Args formated as:
 width height imageSavePath "color"/"bw"</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>

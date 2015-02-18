@@ -3,13 +3,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{96CDE490-BF5D-4764-A19B-A6DDEAEECA2E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>SequenceHang</RootNamespace>
     <AssemblyName>SequenceHang</AssemblyName>
-    <ReleaseVersion>0.3.6</ReleaseVersion>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
     <Description>Test the time it takes to execute multiple instances of GetNextBools.</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
     <StartupObject>SequenceHang.SequenceHang</StartupObject>
@@ -25,6 +25,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <Externalconsole>true</Externalconsole>
     <Commandlineparameters>500 bytes 50000</Commandlineparameters>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>full</DebugType>
