@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>RandomnessBitmap</RootNamespace>
     <AssemblyName>RandomnessBitmap</AssemblyName>
-    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <ReleaseVersion>1.0.1</ReleaseVersion>
     <Description>Args formated as:
 width height imageSavePath "color"/"bw"</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>

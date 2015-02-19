@@ -25,7 +25,7 @@ using System.Reflection;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle ("RandomAutomata")]
-[assembly: AssemblyDescription ("Random sequence generation with cellular automata.")]
+[assembly: AssemblyDescription ("Pseudo-random sequence generation using cellular automata")]
 [assembly: AssemblyConfiguration ("Release")]
 [assembly: AssemblyCompany ("")]
 [assembly: AssemblyProduct ("")]

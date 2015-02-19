@@ -30,11 +30,10 @@ namespace RandomAutomata
 		public Rule ()
 		{
 			this.states = new byte[ruleLength];
-			long workingRuleNumber = ruleNumber;
+			ulong workingRuleNumber = ruleNumber;
 			for (int i = 0; i < this.states.Length; i++) {
-				long temp;
-				workingRuleNumber = Math.DivRem (workingRuleNumber, 2L, out temp);
-				this.states [i] = (byte)temp;
+				this.states [i] = (byte)(workingRuleNumber % 2);
+				workingRuleNumber >>= 1;
 			}
 		}
 
@@ -45,7 +44,7 @@ namespace RandomAutomata
 
 		private byte[] states;
 
-		private const long ruleNumber = 1436965290;
+		private const ulong ruleNumber = 1436965290;
 		private const int ruleLength = 32;
 	
 	}

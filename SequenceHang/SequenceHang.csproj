@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SequenceHang</RootNamespace>
     <AssemblyName>SequenceHang</AssemblyName>
-    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <ReleaseVersion>1.0.1</ReleaseVersion>
     <Description>Test the time it takes to execute multiple instances of GetNextBools.</Description>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
     <StartupObject>SequenceHang.SequenceHang</StartupObject>
